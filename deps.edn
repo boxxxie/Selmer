@@ -1,0 +1,18 @@
+{
+ :paths ["src" "classes" "resources"]
+ :deps {
+        org.clojure/clojure {:mvn/version "1.10.1"}
+        commons-codec       {:mvn/version "1.11"}
+        json-html           {:mvn/version "0.4.7"}
+        cheshire            {:mvn/version "5.8.1"}
+        }
+ :aliases {
+           :dev {
+                 :extra-deps {environ {:mvn/version "1.1.0"}}
+                 }
+           :test {
+                  :extra-paths ["test"]
+                  :extra-deps {criterium {:mvn/version "0.4.4"}}
+                  }
+           }
+ }
