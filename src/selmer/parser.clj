@@ -100,7 +100,8 @@
 (defn render-template
   " vector of ^selmer.node.INodes and a context map."
   [template context-map]
-  (let [buf (StringBuilder.)]
+  (let [buf (StringBuilder.)
+        context-map (assoc context-map :true true :false false)]
     (doseq [^selmer.node.INode element template]
       (if-let [value (.render-node element context-map)]
         (.append buf value)
