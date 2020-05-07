@@ -5,6 +5,7 @@ map. The rest of the arguments are optional and are always strings."
   (:require
     [clojure.string :as s]
     [cheshire.core :as json]
+    [cheshire.generate :refer [add-encoder encode-str remove-encoder]]
     [selmer.util :refer [exception]])
   (:import
     java.util.Locale
@@ -17,6 +18,9 @@ map. The rest of the arguments are optional and are always strings."
     [java.time.format DateTimeFormatter FormatStyle]
     java.text.NumberFormat
     [org.apache.commons.codec.digest DigestUtils]))
+
+(add-encoder java.net.URL encode-str)
+(add-encoder java.net.URI encode-str)
 
 (def valid-date-formats
   {"shortTime"      (DateTimeFormatter/ofLocalizedTime FormatStyle/SHORT)
