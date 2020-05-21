@@ -529,6 +529,8 @@
                               {:foo false
                                :bar false
                                :baz false}))))
+  (is (= "bar!"
+         (string/trim (render-file "templates/elif.html" {:bar true}))))
   (is (= ""
          (string/trim (render "{% if foo %}   foo!
                                {% elif bar %} bar!
